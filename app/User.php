@@ -5,10 +5,23 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    // cancel the default incrementing in authentication by Laravel
+    public $incrementing = false;
+
+    protected static function boot(){
+        parent::boot();
+
+        static::creating(function($model){
+            $model->{$model->getKeyName()} = Str::uuid();
+        });
+    }
+    
 
     /**
      * The attributes that are mass assignable.
