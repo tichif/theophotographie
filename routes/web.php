@@ -21,7 +21,7 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::group(['prefix' => 'back', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']], function () {
     // home
     Route::get('/', 'DashboardController@index')->name('home');
 
