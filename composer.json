@@ -12,7 +12,9 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
+        "laravelcollective/html": "^5.4.0",
         "mews/purifier": "^3.2",
+        "realrashid/sweet-alert": "^3.1",
         "unisharp/laravel-ckeditor": "^4.7",
         "unisharp/laravel-filemanager": "^2.0",
         "zizaco/entrust": " 5.2.x-dev"

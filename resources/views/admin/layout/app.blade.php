@@ -21,6 +21,7 @@
     <!-- Right Panel -->
 
     @include('admin.layout.bottom')
-
+    @include('sweetalert::alert')
+    @yield('scripts')
 </body>
 </html>
