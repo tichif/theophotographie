@@ -18,30 +18,38 @@
                 </li>
                 
                 
-                    <li><a href="{{ url('/back/permission') }}"><i class="menu-icon fa fa-share-square-o"></i> Permissions</a></li>
-                
-                
-                
-                    <li><a href="{{ url('/back/roles') }}"><i class="menu-icon fa fa-fire"></i> Roles</a></li>
-                
-                
+                @permission(['Permission List','All'])
+                <li><a href="{{ url('/back/permission') }}"><i class="menu-icon fa fa-share-square-o"></i> Permissions</a></li>
+            @endpermission
+            
+            @permission(['Role List','All'])
+                <li><a href="{{ url('/back/roles') }}"><i class="menu-icon fa fa-fire"></i> Roles</a></li>
+            @endpermission
 
-                
-                    <li><a href="{{ url('/back/albums') }}"><i class="menu-icon fa fa-picture-o"></i> Albums</a></li>
-                
+            @permission(['Month List','All'])
+                <li><a href="{{ url('/back/months') }}"><i class="menu-icon fa fa-calendar"></i> Mois</a></li>
+            @endpermission
 
-                
-                    <li><a href="{{ url('/back/aboutus') }}"><i class="menu-icon fa fa-info-circle"></i> A propos</a></li>
-                
+            @permission(['Activity List','All'])
+                <li><a href="{{ url('/back/activitees') }}"><i class="menu-icon fa fa-folder-open"></i> Activitées</a></li>
+            @endpermission
+
+            @permission(['Album List','All'])
+                <li><a href="{{ url('/back/albums') }}"><i class="menu-icon fa fa-picture-o"></i> Albums</a></li>
+            @endpermission
+
+            @permission(['About Update','All'])
+                <li><a href="{{ url('/back/aboutus') }}"><i class="menu-icon fa fa-info-circle"></i> A propos</a></li>
+            @endpermission
 
 
-                
-                    <li><a href="{{ url('/back/accounts') }}"><i class="menu-icon fa fa-users"></i> Comptes</a></li>
-                
+            @permission(['Account List','All'])
+                <li><a href="{{ url('/back/accounts') }}"><i class="menu-icon fa fa-users"></i> Comptes</a></li>
+            @endpermission
 
-                
-                    <li><a href="{{ url('/back/settings') }}"><i class="menu-icon fa fa-gears"></i> Paramètres</a></li>
-                
+            @permission(['System Settings','All'])
+                <li><a href="{{ url('/back/settings') }}"><i class="menu-icon fa fa-gears"></i> Paramètres</a></li>
+            @endpermission
                 
 
               

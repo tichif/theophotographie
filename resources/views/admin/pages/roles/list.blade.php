@@ -13,7 +13,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="{{ url('/back') }}">Accueil</a></li> 
+                    <li><a href="{{ url('/back') }}">Accueil</a></li>
                     <li class="active">{{ $page_name }}</li>
                 </ol>
             </div>
@@ -29,8 +29,8 @@
               <div class="card">
                   <div class="card-header">
                     <strong class="card-title">{{ $page_name }}</strong>
-                    @permission(['Permission Add','All'])
-                      <a href="{{url('/back/permission/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
+                    @permission(['Role Add','All'])
+                      <a href="{{url('/back/roles/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
                     @endpermission
                   </div>
                   <div class="card-body">
@@ -42,24 +42,36 @@
                   <th>Nom</th>
                   <th>Nom à afficher</th>
                   <th>Description</th>
+                  <th>Permissions</th>
                   <th>Options</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($data as $i => $permission)
+                @foreach ($data as $i => $role)
                   <tr>
                     <td> {{ ++$i }} </td>
-                    <td> {{ $permission->name }} </td>
-                    <td> {{ $permission->display_name }} </td>
-                    <td> {{ $permission->description }} </td>
+                    <td> {{ $role->name }} </td>
+                    <td> {{ $role->display_name }} </td>
+                    <td> {{ $role->description }} </td>
                     <td> 
-                      @permission(['Permission Update','All'])
-                        <a href="{{ url('/back/permission/edit/'.$permission->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
+                      @if ($role->perms())
+                          <ul class="list-group">
+                            @foreach ($role->perms()->paginate(5) as $permission)
+                              <li class="list-group-item"> {{ $permission->name }}</li>
+                            @endforeach
+                          </ul>
+                      @else
+                          No roles
+                      @endif  
+                    </td>
+                    <td> 
+                      @permission(['Role Update','All'])
+                        <a href="{{ url('/back/roles/edit/'.$role->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
-                      
-                      @permission(['Permission Delete','All'])                      
-                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/permission/delete/'.$permission->id], 'style' => 'display:inline' ]) }}
-                          {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
+
+                      @permission(['Role Delete','All'])
+                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/roles/delete/'.$role->id], 'style' => 'display:inline' ]) }}
+                          {{ Form::submit('Supprimer',['class' => 'btn btn-danger']) }}
                         {{ Form::close() }}
                       @endpermission
                     </td>
@@ -77,7 +89,6 @@
   </div><!-- .content -->
 
 @endsection
-
 
 @section('scripts')
   <script src="{{asset('admin/assets/js/lib/data-table/datatables.min.js')}}"></script>

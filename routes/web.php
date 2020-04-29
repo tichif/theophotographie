@@ -36,4 +36,12 @@ Route::group(['prefix' => 'back', 'middleware' => 'auth'], function () {
     Route::get('/permission/edit/{id}', ['uses' => 'Admin\PermissionsController@edit', 'as' => 'permission-edit']);
     Route::put('/permission/edit/{id}', ['uses' => 'Admin\PermissionsController@update', 'as' => 'permission-update']);
     Route::delete('/permission/delete/{id}', ['uses' => 'Admin\PermissionsController@destroy', 'as' => 'permission-delete']);
+
+    //Roles
+    Route::get('/roles', ['uses' => 'Admin\RolesController@index', 'as' => 'role-list']);
+    Route::get('/roles/create', ['uses' => 'Admin\RolesController@create', 'as' => 'role-create']);
+    Route::post('/roles/store', 'Admin\RolesController@store');
+    Route::get('/roles/edit/{id}', ['uses' => 'Admin\RolesController@edit', 'as' => 'role-edit']);
+    Route::put('/roles/edit/{id}', ['uses' => 'Admin\RolesController@update', 'as' => 'role-update']);
+    Route::delete('/roles/delete/{id}', ['uses' => 'Admin\RolesController@destroy', 'as' => 'role-delete']);
 });
