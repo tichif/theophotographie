@@ -21,11 +21,19 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::group(['prefix'=> 'back','middleware'=>'auth'], function(){
+Route::group(['prefix' => 'back', 'middleware' => 'auth'], function () {
     // home
     Route::get('/', 'DashboardController@index')->name('home');
 
     // Settings
     Route::get('/settings', ['uses' => 'Admin\SettingsController@index', 'as' => 'setting']);
     Route::put('/settings/update', ['uses' => 'Admin\SettingsController@update', 'as' => 'setting-update']);
+
+    //Permissions
+    Route::get('/permission', ['uses' => 'Admin\PermissionsController@index', 'as' => 'permission-list']);
+    Route::get('/permission/create', ['uses' => 'Admin\PermissionsController@create', 'as' => 'permission-create']);
+    Route::post('/permission/store', 'Admin\PermissionsController@store');
+    Route::get('/permission/edit/{id}', ['uses' => 'Admin\PermissionsController@edit', 'as' => 'permission-edit']);
+    Route::put('/permission/edit/{id}', ['uses' => 'Admin\PermissionsController@update', 'as' => 'permission-update']);
+    Route::delete('/permission/delete/{id}', ['uses' => 'Admin\PermissionsController@destroy', 'as' => 'permission-delete']);
 });
