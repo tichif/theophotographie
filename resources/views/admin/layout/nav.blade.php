@@ -26,14 +26,6 @@
                 <li><a href="{{ url('/back/roles') }}"><i class="menu-icon fa fa-fire"></i> Roles</a></li>
             @endpermission
 
-            @permission(['Month List','All'])
-                <li><a href="{{ url('/back/months') }}"><i class="menu-icon fa fa-calendar"></i> Mois</a></li>
-            @endpermission
-
-            @permission(['Activity List','All'])
-                <li><a href="{{ url('/back/activitees') }}"><i class="menu-icon fa fa-folder-open"></i> Activitées</a></li>
-            @endpermission
-
             @permission(['Album List','All'])
                 <li><a href="{{ url('/back/albums') }}"><i class="menu-icon fa fa-picture-o"></i> Albums</a></li>
             @endpermission

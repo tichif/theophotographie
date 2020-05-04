@@ -44,4 +44,14 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::get('/roles/edit/{id}', ['uses' => 'Admin\RolesController@edit', 'as' => 'role-edit']);
     Route::put('/roles/edit/{id}', ['uses' => 'Admin\RolesController@update', 'as' => 'role-update']);
     Route::delete('/roles/delete/{id}', ['uses' => 'Admin\RolesController@destroy', 'as' => 'role-delete']);
+
+    // Account
+    Route::get('/accounts', ['uses' => 'Admin\AccountsController@index', 'as' => 'account-list', 'middleware' => 'permission:Account List|All']);
+    Route::get('/accounts/create', ['uses' => 'Admin\AccountsController@create', 'as' => 'account-create', 'middleware' => 'permission:Account Add|All']);
+    Route::post('/accounts/store', 'Admin\AccountsController@store');
+    Route::get('/accounts/edit/{id}', ['uses' => 'Admin\AccountsController@edit', 'as' => 'account-edit', 'middleware' => 'permission:Account Update|All']);
+    Route::put('/accounts/edit/{id}', ['uses' => 'Admin\AccountsController@update', 'as' => 'account-update']);
+    Route::delete('/accounts/delete/{id}', ['uses' => 'Admin\AccountsController@destroy', 'as' => 'account-delete', 'middleware' => 'permission:Account Delete|All']);
+    Route::get('/mysettings', ['uses' => 'Admin\AccountsController@getMySettings', 'as' => 'my-setting']);
+    Route::put('/mysettings', ['uses' => 'Admin\AccountsController@putMySettings', 'as' => 'my-setting-update']);
 });
