@@ -70,4 +70,12 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::get('/categories/edit/{id}', ['uses' => 'Admin\CategoriesController@edit', 'as' => 'category-edit', 'middleware' => 'permission:Category Update|All']);
     Route::put('/categories/edit/{id}', ['uses' => 'Admin\CategoriesController@update', 'as' => 'category-update']);
     Route::delete('/categories/delete/{id}', ['uses' => 'Admin\CategoriesController@destroy', 'as' => 'category-delete', 'middleware' => 'permission:Category Delete|All']);
+
+    // Plan
+    Route::get('/plan/{category}', ['uses' => 'Admin\PlansController@index', 'as' => 'plan-list', 'middleware' => 'permission:Plan List|All']);
+    Route::get('/plan/{category}/create', ['uses' => 'Admin\PlansController@create', 'as' => 'plan-create', 'middleware' => 'permission: Plan Add|All']);
+    Route::post('/plan/store', 'Admin\PlansController@store')->name('plan-store');
+    Route::get('/plan/edit/{id}', ['uses' => 'Admin\PlansController@edit', 'as' => 'plan-edit', 'middleware' => 'permission:Plan Update|All']);
+    Route::put('/plan/edit/{id}', ['uses' => 'Admin\PlansController@update', 'as' => 'plan-update']);
+    Route::delete('/plan/delete/{id}', ['uses' => 'Admin\PlansController@destroy', 'as' => 'plan-delete', 'middleware' => 'permission:Plan Delete|All']);
 });

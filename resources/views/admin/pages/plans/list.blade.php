@@ -30,7 +30,7 @@
                   <div class="card-header">
                     <strong class="card-title">{{ $page_name }}</strong>
                     @permission(['Category Add','All'])
-                      <a href="{{url('/back/categories/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
+                      <a href="{{url('/back/plan/'.$data->id.'/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
                     @endpermission
                   </div>
                   <div class="card-body">
@@ -40,29 +40,29 @@
                 <tr>
                   <th>#</th>
                   <th>Nom</th>
-                  <th>Description</th>
-                  <th>Plans</th>
+                  <th>Prix</th>
+                  <th>Options</th>
                   <th>Options</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($data as $i => $category)
+                @foreach ($data->plans as $i => $plan)
                   <tr>
                     <td> {{ ++$i }} </td>
-                    <td> {{ $category->name }} </td>
-                    <td> {{ $category->description }} </td>
-                    <td> {{ $category->plans->count() }} </td>
+                    <td> {{ $plan->name }} </td>
+                    <td> ${{ $plan->price }} </td>
+                    <td> 2 </td>
                     <td> 
-                      @permission(['Plan List','All'])
-                        <a href="{{ url('/back/plan/'.$category->id) }}" class="btn btn-secondary"><i class="fa fa-eye"></i> Voir</a>
+                      @permission(['Option List','All'])
+                        <a href="{{ url('/back/options/'.$plan->id) }}" class="btn btn-secondary"><i class="fa fa-eye"></i> Voir</a>
                       @endpermission
 
-                      @permission(['Category Update','All'])
-                        <a href="{{ url('/back/categories/edit/'.$category->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
+                      @permission(['Plan Update','All'])
+                        <a href="{{ url('/back/plan/edit/'.$plan->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
                       
-                      @permission(['Category Delete','All'])                      
-                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/categories/delete/'.$category->id], 'style' => 'display:inline' ]) }}
+                      @permission(['Plan Delete','All'])                      
+                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/plan/delete/'.$plan->id], 'style' => 'display:inline' ]) }}
                           {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
                         {{ Form::close() }}
                       @endpermission
