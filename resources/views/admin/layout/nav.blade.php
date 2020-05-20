@@ -35,6 +35,11 @@
             @endpermission
 
 
+            @permission(['Category Update','All'])
+                <li><a href="{{ url('/back/categories') }}"><i class="menu-icon fa fa-book"></i> Categories</a></li>
+            @endpermission
+
+
             @permission(['Account List','All'])
                 <li><a href="{{ url('/back/accounts') }}"><i class="menu-icon fa fa-users"></i> Comptes</a></li>
             @endpermission

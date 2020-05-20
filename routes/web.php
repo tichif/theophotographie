@@ -62,4 +62,12 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::get('/about/edit/{id}', ['uses' => 'Admin\AboutController@edit', 'as' => 'about-edit', 'middleware' => 'permission:About Update|All']);
     Route::put('/about/edit/{id}', ['uses' => 'Admin\AboutController@update', 'as' => 'about-update']);
     Route::delete('/about/delete/{id}', ['uses' => 'Admin\AboutController@destroy', 'as' => 'about-delete', 'middleware' => 'permission:About Delete|All']);
+
+    // Categories
+    Route::get('/categories', ['uses' => 'Admin\CategoriesController@index', 'as' => 'category-list', 'middleware' => 'permission:Category List|All']);
+    Route::get('/categories/create', ['uses' => 'Admin\CategoriesController@create', 'as' => 'category-create', 'middleware' => 'permission:Category Add|All']);
+    Route::post('/categories/store', 'Admin\CategoriesController@store')->name('category-store');
+    Route::get('/categories/edit/{id}', ['uses' => 'Admin\CategoriesController@edit', 'as' => 'category-edit', 'middleware' => 'permission:Category Update|All']);
+    Route::put('/categories/edit/{id}', ['uses' => 'Admin\CategoriesController@update', 'as' => 'category-update']);
+    Route::delete('/categories/delete/{id}', ['uses' => 'Admin\CategoriesController@destroy', 'as' => 'category-delete', 'middleware' => 'permission:Category Delete|All']);
 });
