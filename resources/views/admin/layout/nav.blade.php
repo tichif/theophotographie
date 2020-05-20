@@ -31,7 +31,7 @@
             @endpermission
 
             @permission(['About Update','All'])
-                <li><a href="{{ url('/back/aboutus') }}"><i class="menu-icon fa fa-info-circle"></i> A propos</a></li>
+                <li><a href="{{ url('/back/about') }}"><i class="menu-icon fa fa-info-circle"></i> A propos</a></li>
             @endpermission
 
 

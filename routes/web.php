@@ -54,4 +54,12 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::delete('/accounts/delete/{id}', ['uses' => 'Admin\AccountsController@destroy', 'as' => 'account-delete', 'middleware' => 'permission:Account Delete|All']);
     Route::get('/mysettings', ['uses' => 'Admin\AccountsController@getMySettings', 'as' => 'my-setting']);
     Route::put('/mysettings', ['uses' => 'Admin\AccountsController@putMySettings', 'as' => 'my-setting-update']);
+
+    // About
+    Route::get('/about', ['uses' => 'Admin\AboutController@index', 'as' => 'about-list', 'middleware' => 'permission:About List|All']);
+    Route::get('/about/create', ['uses' => 'Admin\AboutController@create', 'as' => 'about-create', 'middleware' => 'permission:About Add|All']);
+    Route::post('/about/store', 'Admin\AboutController@store')->name('about-store');
+    Route::get('/about/edit/{id}', ['uses' => 'Admin\AboutController@edit', 'as' => 'about-edit', 'middleware' => 'permission:About Update|All']);
+    Route::put('/about/edit/{id}', ['uses' => 'Admin\AboutController@update', 'as' => 'about-update']);
+    Route::delete('/about/delete/{id}', ['uses' => 'Admin\AboutController@destroy', 'as' => 'about-delete', 'middleware' => 'permission:About Delete|All']);
 });
