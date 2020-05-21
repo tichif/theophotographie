@@ -78,4 +78,12 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::get('/plan/edit/{id}', ['uses' => 'Admin\PlansController@edit', 'as' => 'plan-edit', 'middleware' => 'permission:Plan Update|All']);
     Route::put('/plan/edit/{id}', ['uses' => 'Admin\PlansController@update', 'as' => 'plan-update']);
     Route::delete('/plan/delete/{id}', ['uses' => 'Admin\PlansController@destroy', 'as' => 'plan-delete', 'middleware' => 'permission:Plan Delete|All']);
+
+    // Options
+    Route::get('/options/{plan}', ['uses' => 'Admin\OptionsController@index', 'as' => 'option-list', 'middleware' => 'permission:Option List|All']);
+    Route::get('/options/{plan}/create', ['uses' => 'Admin\OptionsController@create', 'as' => 'option-create', 'middleware' => 'permission: Option Add|All']);
+    Route::post('/options/store', 'Admin\OptionsController@store')->name('option-store');
+    Route::get('/options/edit/{id}', ['uses' => 'Admin\OptionsController@edit', 'as' => 'option-edit', 'middleware' => 'permission:Option Update|All']);
+    Route::put('/options/edit/{id}', ['uses' => 'Admin\OptionsController@update', 'as' => 'option-update']);
+    Route::delete('/options/delete/{id}', ['uses' => 'Admin\OptionsController@destroy', 'as' => 'option-delete', 'middleware' => 'permission:Option Delete|All']);
 });
