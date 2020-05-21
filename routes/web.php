@@ -94,4 +94,13 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::get('/albums/edit/{id}', ['uses' => 'Admin\AlbumsController@edit', 'as' => 'album-edit', 'middleware' => 'permission:Album Update|All']);
     Route::put('/albums/edit/{id}', ['uses' => 'Admin\AlbumsController@update', 'as' => 'album-update']);
     Route::delete('/albums/delete/{id}', ['uses' => 'Admin\AlbumsController@destroy', 'as' => 'album-delete', 'middleware' => 'permission:Album Delete|All']);
+
+    // Photos
+    Route::get('/photos', ['uses' => 'Admin\PhotosController@index', 'as' => 'photo-list', 'middleware' => 'permission:Photo List|All']);
+    Route::get('/photos/create', ['uses' => 'Admin\PhotosController@create', 'as' => 'photo-create', 'middleware' => 'permission: Photo Add|All']);
+    Route::post('/photos/store', 'Admin\PhotosController@store')->name('photo-store');
+    Route::get('/photos/{photo}', 'Admin\PhotosController@show')->name('photo-show');
+    Route::get('/photos/edit/{id}', ['uses' => 'Admin\PhotosController@edit', 'as' => 'photo-edit', 'middleware' => 'permission:Photo Update|All']);
+    Route::put('/photos/edit/{id}', ['uses' => 'Admin\PhotosController@update', 'as' => 'photo-update']);
+    Route::delete('/photos/delete/{id}', ['uses' => 'Admin\PhotosController@destroy', 'as' => 'photo-delete', 'middleware' => 'permission:Photo Delete|All']);
 });

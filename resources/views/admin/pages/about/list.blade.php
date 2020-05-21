@@ -51,7 +51,7 @@
                   <tr>
                     <td> {{ ++$i }} </td>
                     <td>
-                      <img src="{{ url('/') }}/storage/thumbnails/{{ $about->thumb }}" class="img-responsive">
+                      <img src="{{ url('/') }}/storage/thumbnails/{{ $about->thumb }}" alt="{{ $about->name }}" class="img-responsive">
                     </td>
                     <td> {{ $about->name }} </td>
                     <td> {{ $about->type }} </td>

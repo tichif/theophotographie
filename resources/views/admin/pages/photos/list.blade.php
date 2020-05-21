@@ -29,8 +29,8 @@
               <div class="card">
                   <div class="card-header">
                     <strong class="card-title">{{ $page_name }}</strong>
-                    @permission(['Album Add','All'])
-                      <a href="{{url('/back/albums/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
+                    @permission(['Photo Add','All'])
+                      <a href="{{url('/back/photos/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Ajouter</a>
                     @endpermission
                   </div>
                   <div class="card-body">
@@ -39,26 +39,38 @@
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Thumbnail</th>
                   <th>Nom</th>
-                  <th>Description</th>
-                  <th>Nbre Photos</th>
+                  <th>Album(s)</th>
                   <th>Options</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($data as $i => $album)
+                @foreach ($data as $i => $photo)
                   <tr>
                     <td> {{ ++$i }} </td>
-                    <td> {{ $album->name }} </td>
-                    <td> {{ $album->description }} </td>
-                    <td> {{ $album->photos->count() }} </td>
                     <td> 
-                      @permission(['Album Update','All'])
-                        <a href="{{ url('/back/albums/edit/'.$album->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
+                      <img src="{{ url('/') }}/storage/thumbnails/{{ $photo->thumb }}" alt="{{ $photo->name }}">
+                    </td>
+                    <td> {{ $photo->name }} </td>
+                    <td> 
+                      <ul class="list-group">
+                        @foreach ($photo->albums as $album)
+                            <li class="list-group-item">{{ $album->name}}</li>
+                        @endforeach  
+                      </ul>  
+                    </td>
+                    <td> 
+                      @permission(['Photo Update','All'])
+                        <a href="{{ url('/back/photos/'.$photo->id) }}" class="btn btn-secondary"><i class="fa fa-eye"></i> Voir</a>
+                      @endpermission
+
+                      @permission(['Photo Update','All'])
+                        <a href="{{ url('/back/photos/edit/'.$photo->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
                       
-                      @permission(['Album Delete','All'])                      
-                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/albums/delete/'.$album->id], 'style' => 'display:inline' ]) }}
+                      @permission(['Photo Delete','All'])                      
+                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/photos/delete/'.$photo->id], 'style' => 'display:inline' ]) }}
                           {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
                         {{ Form::close() }}
                       @endpermission

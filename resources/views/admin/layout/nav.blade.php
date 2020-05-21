@@ -27,7 +27,12 @@
             @endpermission
 
             @permission(['Album List','All'])
-                <li><a href="{{ url('/back/albums') }}"><i class="menu-icon fa fa-picture-o"></i> Albums</a></li>
+                <li><a href="{{ url('/back/albums') }}"><i class="menu-icon fa fa-plus-square"></i> Albums</a></li>
+            @endpermission
+
+
+            @permission(['Photo List','All'])
+                <li><a href="{{ url('/back/photos') }}"><i class="menu-icon fa fa-picture-o"></i> Photo</a></li>
             @endpermission
 
             @permission(['About Update','All'])
