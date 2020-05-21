@@ -11,8 +11,8 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="apple-touch-icon" href="apple-icon.png">
-        <link rel="shortcut icon" href="{{ asset('/others') }}/">
+        <link rel="apple-touch-icon" href="{{ asset('/others') }}/{{ $shareData['favicon'] }}">
+        <link rel="shortcut icon" href="{{ asset('/others') }}/{{ $shareData['favicon'] }}">
 
         <link rel="stylesheet" href="{{ asset('admin/assets/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('/admin/assets/css/bootstrap.min.css') }}">
@@ -34,7 +34,7 @@
                 <div class="login-content">
                     <div class="login-logo">
                         <a href="{{ route('login') }}">
-                            <img class="align-content" src="" alt="">
+                            <img class="align-content" src="{{ asset('/others') }}/{{ $shareData['admin_logo'] }}" alt="">
                         </a>
                     </div>
                     <div class="login-form">

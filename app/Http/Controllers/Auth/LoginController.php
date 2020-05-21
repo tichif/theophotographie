@@ -47,6 +47,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        return redirect('/back')->with('toast_success', 'Welcome ' . $user->name);
+        return redirect('/back')->with('toast_success', 'Bienvenue ' . $user->name);
     }
 }

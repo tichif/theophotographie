@@ -1,6 +1,6 @@
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ $page_name }} - </title>
+    <title>{{ $page_name }} - {{ $shareData['system_name'] }}</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ env('WEBSITE_DESCRIPTION') }}">
@@ -10,8 +10,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="apple-touch-icon" href="{{ asset('/others') }}/">
-    <link rel="shortcut icon" href="{{ asset('/others') }}/">
+    <link rel="apple-touch-icon" href="{{ asset('/others') }}/{{ $shareData['favicon'] }}">
+    <link rel="shortcut icon" href="{{ asset('/others') }}/{{ $shareData['favicon'] }}">
 
     <link rel="stylesheet" href="{{asset('admin/assets/css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
