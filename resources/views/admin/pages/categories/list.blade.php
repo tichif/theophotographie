@@ -61,11 +61,13 @@
                         <a href="{{ url('/back/categories/edit/'.$category->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
                       
-                      @permission(['Category Delete','All'])                      
-                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/categories/delete/'.$category->id], 'style' => 'display:inline' ]) }}
-                          {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
-                        {{ Form::close() }}
-                      @endpermission
+                      @can('delete', Category::class)
+                        @permission(['Category Delete','All'])                      
+                          {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/categories/delete/'.$category->id], 'style' => 'display:inline' ]) }}
+                            {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
+                          {{ Form::close() }}
+                        @endpermission
+                      @endcan
                     </td>
                   </tr>
                 @endforeach                

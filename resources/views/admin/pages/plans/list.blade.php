@@ -63,11 +63,13 @@
                         <a href="{{ url('/back/plan/edit/'.$plan->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
                       
-                      @permission(['Plan Delete','All'])                      
-                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/plan/delete/'.$plan->id], 'style' => 'display:inline' ]) }}
-                          {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
-                        {{ Form::close() }}
-                      @endpermission
+                      @can('delete', Plan::class)
+                        @permission(['Plan Delete','All'])                      
+                          {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/plan/delete/'.$plan->id], 'style' => 'display:inline' ]) }}
+                            {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
+                          {{ Form::close() }}
+                        @endpermission
+                      @endcan
                     </td>
                   </tr>
                 @endforeach                

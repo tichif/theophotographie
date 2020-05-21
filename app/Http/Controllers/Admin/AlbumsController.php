@@ -118,6 +118,8 @@ class AlbumsController extends Controller
             return back();
         }
 
+        $this->authorize("delete", $album);
+
         $album->delete();
         return redirect()->action('Admin\AlbumsController@index')->with('toast_success', "Modification de l'alnum réussie.");
     }

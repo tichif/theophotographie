@@ -57,11 +57,13 @@
                         <a href="{{ url('/back/albums/edit/'.$album->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
                       
-                      @permission(['Album Delete','All'])                      
+                      @can('delete', Album::class)
+                        @permission(['Album Delete','All'])                      
                         {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/albums/delete/'.$album->id], 'style' => 'display:inline' ]) }}
                           {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
                         {{ Form::close() }}
                       @endpermission
+                      @endcan
                     </td>
                   </tr>
                 @endforeach                

@@ -146,6 +146,8 @@ class PlansController extends Controller
             return back();
         }
 
+        $this->authorize("delete", $plan);
+
         $plan->delete();
         return redirect()->route('plan-list', $plan->category_id)->with('toast_success', 'Suppression du plan réussie.');
     }

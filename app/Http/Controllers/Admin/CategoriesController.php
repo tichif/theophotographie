@@ -121,6 +121,8 @@ class CategoriesController extends Controller
             return redirect()->action('Admin\CategoriesController@index');
         }
 
+        $this->authorize("delete", $category);
+
         $category->delete();
         return redirect()->action('Admin\CategoriesController@index')->with('toast_success', 'Suppression de la catégorie réussie.');
     }
