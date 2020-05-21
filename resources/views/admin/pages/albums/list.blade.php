@@ -14,7 +14,6 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="{{ url('/back') }}">Accueil</a></li> 
-                    <li><a href="{{ url('/back/categories') }}">Categories</a></li> 
                     <li class="active">{{ $page_name }}</li>
                 </ol>
             </div>
@@ -30,9 +29,8 @@
               <div class="card">
                   <div class="card-header">
                     <strong class="card-title">{{ $page_name }}</strong>
-                    <a href="{{ url('/back/categories' )}}" class="btn btn-warning ml-3 pull-right"><i class="fa fa-arrow-left"></i> Retour</a>
                     @permission(['Plan Add','All'])
-                      <a href="{{url('/back/plan/'.$data->id.'/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
+                      <a href="{{url('/back/albums/create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Créer</a>
                     @endpermission
                   </div>
                   <div class="card-body">
@@ -42,29 +40,25 @@
                 <tr>
                   <th>#</th>
                   <th>Nom</th>
-                  <th>Prix</th>
+                  <th>Description</th>
+                  <th>Nbre Photos</th>
                   <th>Options</th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($data->plans as $i => $plan)
+                @foreach ($data as $i => $album)
                   <tr>
                     <td> {{ ++$i }} </td>
-                    <td> {{ $plan->name }} </td>
-                    <td> ${{ $plan->price }} </td>
-                    <td> {{ $plan->options->count() }} </td>
+                    <td> {{ $album->name }} </td>
+                    <td> {{ $album->description }} </td>
+                    <td> 0 </td>
                     <td> 
-                      @permission(['Option List','All'])
-                        <a href="{{ url('/back/options/'.$plan->id) }}" class="btn btn-secondary"><i class="fa fa-eye"></i> Voir</a>
-                      @endpermission
-
-                      @permission(['Plan Update','All'])
-                        <a href="{{ url('/back/plan/edit/'.$plan->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
+                      @permission(['Album Update','All'])
+                        <a href="{{ url('/back/albums/edit/'.$album->id) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Modifier</a>
                       @endpermission
                       
-                      @permission(['Plan Delete','All'])                      
-                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/plan/delete/'.$plan->id], 'style' => 'display:inline' ]) }}
+                      @permission(['Album Delete','All'])                      
+                        {{ Form::open(['method'=> 'DELETE', 'url'=> ['/back/albums/delete/'.$album->id], 'style' => 'display:inline' ]) }}
                           {{ Form::submit(' Supprimer',['class' => 'btn btn-danger ']) }}
                         {{ Form::close() }}
                       @endpermission

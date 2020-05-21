@@ -86,4 +86,12 @@ Route::group(['prefix' => 'back', 'middleware' => ['auth', 'preventBackHistory']
     Route::get('/options/edit/{id}', ['uses' => 'Admin\OptionsController@edit', 'as' => 'option-edit', 'middleware' => 'permission:Option Update|All']);
     Route::put('/options/edit/{id}', ['uses' => 'Admin\OptionsController@update', 'as' => 'option-update']);
     Route::delete('/options/delete/{id}', ['uses' => 'Admin\OptionsController@destroy', 'as' => 'option-delete', 'middleware' => 'permission:Option Delete|All']);
+
+    // Albums
+    Route::get('/albums', ['uses' => 'Admin\AlbumsController@index', 'as' => 'album-list', 'middleware' => 'permission:Album List|All']);
+    Route::get('/albums/create', ['uses' => 'Admin\AlbumsController@create', 'as' => 'album-create', 'middleware' => 'permission: Album Add|All']);
+    Route::post('/albums/store', 'Admin\AlbumsController@store')->name('album-store');
+    Route::get('/albums/edit/{id}', ['uses' => 'Admin\AlbumsController@edit', 'as' => 'album-edit', 'middleware' => 'permission:Album Update|All']);
+    Route::put('/albums/edit/{id}', ['uses' => 'Admin\AlbumsController@update', 'as' => 'album-update']);
+    Route::delete('/albums/delete/{id}', ['uses' => 'Admin\AlbumsController@destroy', 'as' => 'album-delete', 'middleware' => 'permission:Album Delete|All']);
 });
