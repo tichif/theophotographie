@@ -52,7 +52,7 @@
   <section id="quotes">
     <div class="quotes-center owl-carousel owl-theme">
       <article class="quote">
-        <img src="{{ asset('front/assets/img/cus5.jpg') }}" alt="image">
+        <img src="{{ asset('front/assets/img/cus5.jpg') }}" alt="image" loading="lazy">
         <blockquote>
           <p><i class="fas fa-quote-left"></i> &nbsp;Théo Photography est la compagnie la plus professionnelle que je connaisse.</p>
           <footer>Peterson VILBERT</footer>
@@ -60,7 +60,7 @@
       </article>
 
       <article class="quote">
-        <img src="{{ asset('front/assets/img/cus6.jpg') }}" alt="image">
+        <img src="{{ asset('front/assets/img/cus6.jpg') }}" alt="image" loading="lazy">
         <blockquote>
           <p><i class="fas fa-quote-left"></i>&nbsp; J'aime Théo Photographie, pour son professionnalisme, son éthique, et bien sur l'amour du metier reflete dans son travail.</p>
           <footer>Pamela PIERRE</footer>
@@ -68,7 +68,7 @@
       </article>
 
       <article class="quote">
-        <img src="{{ asset('front/assets/img/cus1.jpg') }}" alt="image">
+        <img src="{{ asset('front/assets/img/cus1.jpg') }}" alt="image" loading="lazy">
         <blockquote>
           <p><i class="fas fa-quote-left"></i>&nbsp; J'ai pu à plusieurs reprises collaborer avec Théo Photographie, je suis toujours satisfaite du service et de l'équipe. Le travail est toujours bien fait et le résultat est très satisfaisant, c'est une équipe professionnelle qui ne fait que progresser de jour en jour.</p>
           <footer>Madjina ANTOINE</footer>
@@ -76,7 +76,7 @@
       </article>
       
       <article class="quote">
-        <img src="{{ asset('front/assets/img/cus2.jpg')}}" alt="image">
+        <img src="{{ asset('front/assets/img/cus2.jpg')}}" alt="image" loading="lazy">
         <blockquote>
           <p><i class="fas fa-quote-left"></i>&nbsp; Ce qui m'a capté c'est le professionnalisme et le dynamisme  de l'équipe qui marche pair avec la technologie. Déjà sur les réseaux sociaux, Théo Photographie vous invite à passer de leur studio pour une séance de photos. L'archive numérique. </p>
           <footer>Luc DUFRESNE</footer>
@@ -84,7 +84,7 @@
       </article>
       
       <article class="quote">
-        <img src="{{ asset('front/assets/img/cus3.jpg') }}" alt="image">
+        <img src="{{ asset('front/assets/img/cus3.jpg') }}" alt="image" loading="lazy">
         <blockquote>
           <p><i class="fas fa-quote-left"></i>&nbsp; Très satisfait.Et, de part mes expériences soit comme mannequin, soit comme dirigeant d'une agence de mannequins, il est celui qui travaille avec plus de rigueur et de professinnalisme.</p>
           <footer>Francky SAINT-FLEUR</footer>
@@ -92,7 +92,7 @@
       </article>
       
       <article class="quote">
-        <img src="{{ asset('front/assets/img/cus4.jpg') }}" alt="image">
+        <img src="{{ asset('front/assets/img/cus4.jpg') }}" alt="image" loading="lazy">
         <blockquote>
           <p><i class="fas fa-quote-left"></i>&nbsp; I highly recommend Theo Photographie. My experience with them was more than satisfactory. In addition, customer service is to be congratulated. Do not hesitate to give your image in their hands.</p>
           <footer>Stayana Altagracia MARC-CHARLES</footer>

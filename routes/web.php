@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'Front\PagesController@index');
+Route::get('/gallerie', 'Front\GallerieController@index');
+Route::get('/album/{album}', 'Front\GallerieController@album')->name('albums');
 
 Auth::routes([
     'register' => false, // Registration Routes...

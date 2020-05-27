@@ -8,7 +8,7 @@
 <body>
 
   <!-- Header Section -->
-  <header id="header">
+  <header id="{{ Request::is('/')  ? 'header' : 'about-header' }}">
     @include('front.layout.nav')
 
     @yield('banner')
@@ -25,6 +25,7 @@
 
 
     @include('front.layout.bottom')
+    @yield('scripts')
     @include('sweetalert::alert')
   </body>
 

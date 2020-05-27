@@ -10,4 +10,5 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ asset('front/assets/css/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('front/assets/css/owl.theme.default.css') }}">
+<link rel="stylesheet" href="{{ asset('front/assets/css/magnific-popup.css') }}">
 <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">

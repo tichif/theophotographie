@@ -17,9 +17,9 @@
   </ul>
 
   <ul class="nav-icons">
-    <li><a href="{{ $shareData['facebook'] }}" target="_blank"><i class="fab fa-facebook"></i></a></li>
-    <li><a href="{{ $shareData['instagram'] }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    <li><a href="{{ $shareData['pinterest'] }}" target="_blank"><i class="fab fa-pinterest"></i></a></li>
-    <li><a href="{{ $shareData['youtube'] }}" target="_blank"><i class="fab fa-youtube"></i></a></li>
+    <li><a href="{{ $shareData['facebook'] }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a></li>
+    <li><a href="{{ $shareData['instagram'] }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="{{ $shareData['pinterest'] }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest"></i></a></li>
+    <li><a href="{{ $shareData['youtube'] }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a></li>
   </ul>
 </nav>
