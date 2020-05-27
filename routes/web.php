@@ -15,6 +15,8 @@ Route::get('/', 'Front\PagesController@index');
 Route::get('/gallerie', 'Front\GallerieController@index');
 Route::get('/album/{album}', 'Front\GallerieController@album')->name('albums');
 Route::get('/about', 'Front\AboutController');
+Route::get('/bookus', 'Front\BookController@index');
+Route::get('/bookus/category/{category}', 'Front\BookController@category');
 
 Auth::routes([
     'register' => false, // Registration Routes...

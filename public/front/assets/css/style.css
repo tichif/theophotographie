@@ -696,6 +696,59 @@ iframe {
     color: #191919;
 }
 
+@media screen and (min-width: 776px) {
+    .about {
+        display: flex;
+    }
+
+    .about-text {
+        flex: 0 0 30%;
+    }
+
+    .about-img {
+        flex: 0 0 70%;
+        clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+    }
+    .about {
+        background: #d1aea8;
+    }
+
+    .contact-center {
+        display: flex;
+        padding: 0 40px;
+    }
+
+    .contact-info {
+        flex: 0 0 calc(60% - 1em);
+    }
+
+    .contact-form {
+        flex: 0 0 calc(40% - 1em);
+    }
+
+    .about-page-center {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .pricing-center {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 1em;
+    }
+
+    .contact-page-center {
+        display: grid;
+        grid-template-columns: 65% 20%;
+        grid-column-gap: 3em;
+    }
+
+    #current-center {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Media Queries */
 @media screen and (min-width: 992px) {
     .btn {
@@ -776,52 +829,9 @@ iframe {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
-}
-
-@media screen and (min-width: 776px) {
-    .about {
-        display: flex;
-    }
-
-    .about-text {
-        flex: 0 0 30%;
-    }
-
-    .about-img {
-        flex: 0 0 70%;
-        clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
-    }
-    .about {
-        background: #d1aea8;
-    }
-
-    .contact-center {
-        display: flex;
-        padding: 0 40px;
-    }
-
-    .contact-info {
-        flex: 0 0 calc(60% - 1em);
-    }
-
-    .contact-form {
-        flex: 0 0 calc(40% - 1em);
-    }
-
-    .about-page-center {
-        display: grid;
-        grid-template-columns: 40% 60%;
-    }
 
     .pricing-center {
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 1em;
-    }
-
-    .contact-page-center {
-        display: grid;
-        grid-template-columns: 65% 20%;
-        grid-column-gap: 3em;
     }
 }
