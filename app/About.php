@@ -26,6 +26,6 @@ class About extends Model
 
     public function getBodyHtmlAttribute()
     {
-        return clean($this->bodyHtml);
+        return clean($this->bodyHtml());
     }
 }
