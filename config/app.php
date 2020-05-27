@@ -15,6 +15,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'website_description' => env('WEBSITE_DESCRIPTION', 'Site de photographie et de vidéographie'),
+    'website_author' => env('WEBSITE_AUTHOR', 'Dalzon Charles-Hébert'),
+    'website_keywords' => env('WEBSITE_KEYWORDS', 'Théo, Photographie, Théo Photographie, Haïti, Carrefour'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

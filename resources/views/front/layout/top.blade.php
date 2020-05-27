@@ -1,8 +1,8 @@
 <meta charset="UTF-8">
 <title>{{ $page_name }} - {{ $shareData['system_name'] }}</title>
-<meta name="description" content="{{ env('WEBSITE_DESCRIPTION') }}">
-<meta name="keywords" content="{{ env('WEBSITE_KEYWORDS') }}"/>
-<meta name="author" content="{{ env('WEBSITE_AUTHOR') }}"/>
+<meta name="description" content="{{ config('app.website_description','Site de photographie et de vidéographie') }}">
+<meta name="keywords" content="{{ config('app.website_keywords','Théo, Photographie, Théo Photographie, Haïti, Carrefour') }}"/>
+<meta name="author" content="{{ config('app.website_author','Dalzon Charles-Hébert') }}"/>
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="apple-touch-icon" href="{{ asset('/others') }}/{{ $shareData['favicon'] }}">
